@@ -31,9 +31,7 @@ class CardController {
 
   async update(req: Request, res: Response) {
     const { id } = req.params;
-    const { id: idCard, titulo, conteudo, lista } = req.body;
-
-    if (id !== idCard) return res.sendStatus(400);
+    const { titulo, conteudo, lista } = req.body;
 
     const cardRepository = getRepository(Card);
 

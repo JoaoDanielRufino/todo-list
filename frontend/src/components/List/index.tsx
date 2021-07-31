@@ -4,10 +4,12 @@ interface Props {
   title: string;
 }
 
-const List: React.FC<Props> = ({ title }) => {
+const List: React.FC<Props> = ({ title, children }) => {
   return (
     <Container>
       <h2>{title}</h2>
+
+      {children}
     </Container>
   );
 };

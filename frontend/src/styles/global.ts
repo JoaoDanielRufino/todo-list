@@ -19,6 +19,10 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
+  ul {
+    list-style: none;
+  }
+
   body {
     background-color: #43566a;
   }

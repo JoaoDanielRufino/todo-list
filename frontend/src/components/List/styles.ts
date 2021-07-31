@@ -6,4 +6,8 @@ export const Container = styled.div`
   width: 250px;
   text-align: center;
   border-radius: 8px;
+
+  h2 {
+    margin-bottom: 15px;
+  }
 `;

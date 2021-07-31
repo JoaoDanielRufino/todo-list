@@ -9,6 +9,7 @@ import { Card, ListTypes } from '../../interfaces';
 import List from '../../components/List';
 
 import api from '../../services/api';
+import NewCard from '../../components/NewCard';
 
 const Home = () => {
   const [cards, setCards] = useState<Card[]>([]);
@@ -26,6 +27,16 @@ const Home = () => {
 
     getCards();
   }, []);
+
+  const handleCreateCard = async (title: string, content: string) => {
+    try {
+      const response = await api.post('/cards', { titulo: title, conteudo: content, lista: 'ToDo' });
+      setCards([...cards, response.data]);
+    } catch (err) {
+      alert('Falha ao criar card');
+      console.log(err);
+    }
+  };
 
   const handleListChange = async (id: string, list: ListTypes) => {
     const card = cards.find((card) => card.id === id);
@@ -73,6 +84,10 @@ const Home = () => {
 
   return (
     <Container>
+      <List title="Novo">
+        <NewCard handleCreateCard={handleCreateCard} />
+      </List>
+
       <List title="ToDo">
         <Cards
           cards={cards.filter((card) => card.lista === 'ToDo')}

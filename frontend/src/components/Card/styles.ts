@@ -5,3 +5,35 @@ export const Container = styled.div`
   border-radius: 4px;
   padding: 6px;
 `;
+
+export const CardHeader = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ccc;
+
+  svg {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+  }
+`;
+
+export const CardContent = styled.div`
+  min-height: 100px;
+  margin-top: 8px;
+  border-bottom: 1px solid #ccc;
+`;
+
+export const CardFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+
+  svg {
+    cursor: pointer;
+  }
+`;

@@ -1,41 +1,32 @@
 import { Container } from './styles';
 
+import Cards from './Cards';
+
 import List from '../../components/List';
-import Card from '../../components/Card';
 
 const Home = () => (
   <Container>
     <List title="To Do">
-      <ul>
-        <li style={{ marginTop: '5px' }}>
-          <Card />
-        </li>
-        <li style={{ marginTop: '5px' }}>
-          <Card />
-        </li>
-        <li style={{ marginTop: '5px' }}>
-          <Card />
-        </li>
-      </ul>
+      <Cards
+        cards={[
+          { titulo: 'test', conteudo: 'conteudo' },
+          { titulo: 'test', conteudo: 'conteudo' },
+          { titulo: 'test', conteudo: 'conteudo' },
+        ]}
+      />
     </List>
 
     <List title="Doing">
-      <ul>
-        <li style={{ marginTop: '5px' }}>
-          <Card />
-        </li>
-        <li style={{ marginTop: '5px' }}>
-          <Card />
-        </li>
-      </ul>
+      <Cards
+        cards={[
+          { titulo: 'test', conteudo: 'conteudo' },
+          { titulo: 'test', conteudo: 'conteudo' },
+        ]}
+      />
     </List>
 
     <List title="Done">
-      <ul>
-        <li style={{ marginTop: '5px' }}>
-          <Card />
-        </li>
-      </ul>
+      <Cards cards={[{ titulo: 'test', conteudo: 'conteudo' }]} />
     </List>
   </Container>
 );

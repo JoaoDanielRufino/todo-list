@@ -26,6 +26,8 @@ export const CardContent = styled.div`
   min-height: 100px;
   margin-top: 8px;
   border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  word-break: break-all;
 `;
 
 export const CardFooter = styled.div`

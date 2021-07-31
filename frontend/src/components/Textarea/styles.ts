@@ -7,4 +7,5 @@ export const MyTextarea = styled.textarea`
   resize: none;
   border: 1px solid #999;
   border-radius: 4px;
+  font-size: 14px;
 `;

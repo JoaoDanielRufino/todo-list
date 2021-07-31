@@ -5,4 +5,5 @@ export const MyInput = styled.input`
   padding: 6px;
   border: 1px solid #999;
   border-radius: 4px;
+  font-size: 16px;
 `;

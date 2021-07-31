@@ -15,8 +15,13 @@ const Home = () => {
 
   useEffect(() => {
     async function getCards() {
-      const response = await api.get('/cards');
-      setCards(response.data);
+      try {
+        const response = await api.get('/cards');
+        setCards(response.data);
+      } catch (err) {
+        alert('Falha ao acessar cards');
+        console.log(err);
+      }
     }
 
     getCards();
@@ -27,18 +32,24 @@ const Home = () => {
     if (card) {
       const newCard: Card = { ...card, lista: list };
       const newCards = cards.filter((card) => card.id !== id); // Removendo o card antigo da lista
-      newCards.push(newCard);
-      setCards(newCards);
-      await api.put(`/cards/${id}`, newCard);
+      try {
+        const response = await api.put(`/cards/${id}`, newCard);
+        newCards.push(response.data);
+        setCards(newCards);
+      } catch (err) {
+        alert('Falha ao atualizar card');
+        console.log(err);
+      }
     }
   };
 
   const handleDeleteCard = async (id: string) => {
-    const card = cards.find((card) => card.id === id);
-    if (card) {
-      const newCards = cards.filter((card) => card.id !== id);
-      setCards(newCards);
-      await api.delete(`/cards/${id}`);
+    try {
+      const response = await api.delete(`/cards/${id}`);
+      setCards(response.data);
+    } catch (err) {
+      alert('Falha ao deletar card');
+      console.log(err);
     }
   };
 
@@ -46,12 +57,17 @@ const Home = () => {
     const card = cards.find((card) => card.id === id);
     if (card) {
       const newCard: Card = { ...card, titulo: title, conteudo: content };
-      const newCards = cards.map((card) => {
-        if (card.id !== id) return card;
-        return newCard;
-      });
-      setCards(newCards);
-      await api.put(`/cards/${id}`, newCard);
+      try {
+        const response = await api.put(`/cards/${id}`, newCard);
+        const newCards = cards.map((card) => {
+          if (card.id !== id) return card;
+          return response.data;
+        });
+        setCards(newCards);
+      } catch (err) {
+        alert('Falha ao atualizar card');
+        console.log(err);
+      }
     }
   };
 

@@ -33,22 +33,22 @@ const Card: React.FC<Props> = ({
     setCardMode(mode);
   };
 
-  const handleForwardClick = () => {
-    if (lista === 'ToDo') handleListChange(id, 'Doing');
-    else if (lista === 'Doing') handleListChange(id, 'Done');
+  const handleForwardClick = async () => {
+    if (lista === 'ToDo') await handleListChange(id, 'Doing');
+    else if (lista === 'Doing') await handleListChange(id, 'Done');
   };
 
-  const handleBackClick = () => {
-    if (lista === 'Doing') handleListChange(id, 'ToDo');
-    else if (lista === 'Done') handleListChange(id, 'Doing');
+  const handleBackClick = async () => {
+    if (lista === 'Doing') await handleListChange(id, 'ToDo');
+    else if (lista === 'Done') await handleListChange(id, 'Doing');
   };
 
-  const handleDeleteClick = () => {
-    handleDeleteCard(id);
+  const handleDeleteClick = async () => {
+    await handleDeleteCard(id);
   };
 
-  const handleSaveClick = () => {
-    handleUpdateCard(id, title, textarea);
+  const handleSaveClick = async () => {
+    await handleUpdateCard(id, title, textarea);
     setCardMode('DISPLAY');
   };
 

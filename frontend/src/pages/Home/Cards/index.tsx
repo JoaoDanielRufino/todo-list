@@ -10,8 +10,8 @@ interface Props {
 
 const Cards: React.FC<Props> = ({ cards }) => (
   <Container>
-    {cards.map((card) => (
-      <li>
+    {cards.map((card, index) => (
+      <li key={index}>
         <Card {...card} />
       </li>
     ))}

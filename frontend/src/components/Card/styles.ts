@@ -22,6 +22,7 @@ export const CardHeader = styled.div`
 `;
 
 export const CardContent = styled.div`
+  display: flex;
   min-height: 100px;
   margin-top: 8px;
   border-bottom: 1px solid #ccc;

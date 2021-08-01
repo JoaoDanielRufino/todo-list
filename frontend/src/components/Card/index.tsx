@@ -6,15 +6,12 @@ import { Container, CardHeader, CardContent, CardFooter } from './styles';
 import Textarea from '../Textarea';
 import Input from '../Input';
 
-import { Card as CardInterface, ListTypes } from '../../interfaces';
+import { Card as CardInterface, CardHandlers } from '../../interfaces';
+import MarkdownElement from '../MarkdownElement';
 
 type Mode = 'DISPLAY' | 'EDIT';
 
-interface Props extends CardInterface {
-  handleListChange: (id: string, list: ListTypes) => Promise<void>;
-  handleDeleteCard: (id: string) => Promise<void>;
-  handleUpdateCard: (id: string, title: string, content: string) => Promise<void>;
-}
+interface Props extends CardInterface, CardHandlers {}
 
 const Card: React.FC<Props> = ({
   id,
@@ -59,7 +56,9 @@ const Card: React.FC<Props> = ({
         <FaRegEdit size={20} onClick={() => handleChangeCardMode('EDIT')} />
       </CardHeader>
 
-      <CardContent>{conteudo}</CardContent>
+      <CardContent>
+        <MarkdownElement text={conteudo} />
+      </CardContent>
 
       <CardFooter>
         <FaAngleLeft

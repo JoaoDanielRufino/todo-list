@@ -2,13 +2,10 @@ import { Container } from './styles';
 
 import Card from '../../../components/Card';
 
-import { Card as CardInterface, ListTypes } from '../../../interfaces';
+import { Card as CardInterface, CardHandlers } from '../../../interfaces';
 
-interface Props {
+interface Props extends CardHandlers {
   cards: CardInterface[];
-  handleListChange: (id: string, list: ListTypes) => Promise<void>;
-  handleDeleteCard: (id: string) => Promise<void>;
-  handleUpdateCard: (id: string, title: string, content: string) => Promise<void>;
 }
 
 const Cards: React.FC<Props> = ({ cards, ...rest }) => (

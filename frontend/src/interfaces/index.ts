@@ -6,3 +6,9 @@ export interface Card {
   conteudo: string;
   lista: ListTypes;
 }
+
+export interface CardHandlers {
+  handleListChange: (id: string, list: ListTypes) => Promise<void>;
+  handleDeleteCard: (id: string) => Promise<void>;
+  handleUpdateCard: (id: string, title: string, content: string) => Promise<void>;
+}

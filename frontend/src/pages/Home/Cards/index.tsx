@@ -13,8 +13,8 @@ interface Props {
 
 const Cards: React.FC<Props> = ({ cards, ...rest }) => (
   <Container>
-    {cards.map((card, index) => (
-      <li key={index}>
+    {cards.map((card) => (
+      <li key={card.id}>
         <Card {...card} {...rest} />
       </li>
     ))}

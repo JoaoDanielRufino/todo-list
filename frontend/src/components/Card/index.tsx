@@ -62,9 +62,19 @@ const Card: React.FC<Props> = ({
       <CardContent>{conteudo}</CardContent>
 
       <CardFooter>
-        <FaAngleLeft size={20} onClick={handleBackClick} />
-        <FaTrash size={18} onClick={handleDeleteClick} />
-        <FaAngleRight size={20} onClick={handleForwardClick} />
+        <FaAngleLeft
+          size={20}
+          cursor={lista === 'ToDo' ? 'default' : 'pointer'}
+          color={lista === 'ToDo' ? '#ccc' : 'black'}
+          onClick={handleBackClick}
+        />
+        <FaTrash size={18} cursor="pointer" onClick={handleDeleteClick} />
+        <FaAngleRight
+          size={20}
+          cursor={lista === 'Done' ? 'default' : 'pointer'}
+          color={lista === 'Done' ? '#ccc' : 'black'}
+          onClick={handleForwardClick}
+        />
       </CardFooter>
     </>
   );
@@ -80,8 +90,8 @@ const Card: React.FC<Props> = ({
       </CardContent>
 
       <CardFooter>
-        <FaBan size={20} onClick={() => handleChangeCardMode('DISPLAY')} />
-        <FaSave size={20} onClick={handleSaveClick} />
+        <FaBan size={20} cursor="pointer" onClick={() => handleChangeCardMode('DISPLAY')} />
+        <FaSave size={20} cursor="pointer" onClick={handleSaveClick} />
       </CardFooter>
     </>
   );

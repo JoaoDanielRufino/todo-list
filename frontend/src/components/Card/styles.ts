@@ -35,8 +35,4 @@ export const CardFooter = styled.div`
   align-items: center;
   justify-content: space-between;
   padding-top: 4px;
-
-  svg {
-    cursor: pointer;
-  }
 `;

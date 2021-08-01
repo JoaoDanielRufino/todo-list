@@ -7,9 +7,9 @@ import Cards from './Cards';
 import { Card, ListTypes } from '../../interfaces';
 
 import List from '../../components/List';
+import NewCard from '../../components/NewCard';
 
 import api from '../../services/api';
-import NewCard from '../../components/NewCard';
 
 const Home = () => {
   const [cards, setCards] = useState<Card[]>([]);

@@ -9,7 +9,7 @@ import { Card, ListTypes } from '../../interfaces';
 import List from '../../components/List';
 import NewCard from '../../components/NewCard';
 
-import api from '../../services/api';
+import { createCard, deleteCard, fetchCards, updateCard } from '../../services/cardService';
 
 const Home = () => {
   const [cards, setCards] = useState<Card[]>([]);
@@ -17,8 +17,8 @@ const Home = () => {
   useEffect(() => {
     async function getCards() {
       try {
-        const response = await api.get('/cards');
-        setCards(response.data);
+        const _cards = await fetchCards();
+        setCards(_cards);
       } catch (err) {
         alert('Falha ao acessar cards');
         console.log(err);
@@ -30,8 +30,8 @@ const Home = () => {
 
   const handleCreateCard = async (title: string, content: string) => {
     try {
-      const response = await api.post('/cards', { titulo: title, conteudo: content, lista: 'ToDo' });
-      setCards([...cards, response.data]);
+      const response = await createCard(title, content, 'ToDo');
+      setCards([...cards, response]);
     } catch (err) {
       alert('Falha ao criar card');
       console.log(err);
@@ -44,8 +44,8 @@ const Home = () => {
       const newCard: Card = { ...card, lista: list };
       const newCards = cards.filter((card) => card.id !== id); // Removendo o card antigo da lista
       try {
-        const response = await api.put(`/cards/${id}`, newCard);
-        newCards.push(response.data);
+        const response = await updateCard(newCard);
+        newCards.push(response);
         setCards(newCards);
       } catch (err) {
         alert('Falha ao atualizar card');
@@ -56,8 +56,8 @@ const Home = () => {
 
   const handleDeleteCard = async (id: string) => {
     try {
-      const response = await api.delete(`/cards/${id}`);
-      setCards(response.data);
+      const response = await deleteCard(id);
+      setCards(response);
     } catch (err) {
       alert('Falha ao deletar card');
       console.log(err);
@@ -69,10 +69,10 @@ const Home = () => {
     if (card) {
       const newCard: Card = { ...card, titulo: title, conteudo: content };
       try {
-        const response = await api.put(`/cards/${id}`, newCard);
+        const response = await updateCard(newCard);
         const newCards = cards.map((card) => {
           if (card.id !== id) return card;
-          return response.data;
+          return response;
         });
         setCards(newCards);
       } catch (err) {

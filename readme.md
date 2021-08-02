@@ -44,6 +44,10 @@ Para rodar a API com docker, execute o comando:
 docker-compose up
 ```
 
+### Env
+
+Em ambos os casos é necessário criar um arquivo .env de acordo com o .env.example
+
 O servidor estará rodando na porta 5000
 
 ## Frontend

@@ -71,9 +71,7 @@ Entre na pasta frontend
 cd frontend
 ```
 
-Execute o comando
-
-Entre na pasta frontend
+Execute o comando para subir o frontend
 
 ```bash
 docker-compose up

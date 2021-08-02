@@ -25,7 +25,7 @@ class CardController {
       res.json(response);
     } catch (err) {
       console.log(err);
-      res.status(500).json({ status: 'error', message: 'Internal server error' });
+      res.status(500).json({ message: 'Internal server error' });
     }
   }
 
@@ -43,7 +43,7 @@ class CardController {
       res.json({ id, titulo, conteudo, lista });
     } catch (err) {
       console.log(err);
-      res.status(500).json({ status: 'error', message: 'Internal server error' });
+      res.status(500).json({ message: 'Internal server error' });
     }
   }
 
@@ -62,7 +62,7 @@ class CardController {
       res.json(response);
     } catch (err) {
       console.log(err);
-      res.status(500).json({ status: 'error', message: 'Internal server error' });
+      res.status(500).json({ message: 'Internal server error' });
     }
   }
 }

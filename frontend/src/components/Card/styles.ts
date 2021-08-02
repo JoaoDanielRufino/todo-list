@@ -29,7 +29,6 @@ export const CardContent = styled.div`
   font-size: 16px;
   /* word-break: break-all; */
   word-wrap: break-word;
-  /* white-space: pre-wrap; */
 `;
 
 export const CardFooter = styled.div`

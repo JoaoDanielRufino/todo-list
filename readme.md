@@ -8,6 +8,10 @@ Foi construído um backend e frontend para cirar uma aplicação similar a um Qu
 
 Para rodar a API será necessário ter o docker instalado.
 
+### Env
+
+É necessário criar um arquivo .env de acordo com o .env.example
+
 ### Executando a API sem docker
 
 Entre na pasta backend:
@@ -43,10 +47,6 @@ Para rodar a API com docker, execute o comando:
 ```bash
 docker-compose up
 ```
-
-### Env
-
-Em ambos os casos é necessário criar um arquivo .env de acordo com o .env.example
 
 O servidor estará rodando na porta 5000
 

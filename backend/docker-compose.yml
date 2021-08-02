@@ -1,6 +1,22 @@
 version: '3.8'
 
 services:
+  app:
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - db
+    environment:
+      - TYPEORM_CONNECTION=postgres
+      - TYPEORM_HOST=db
+      - TYPEORM_PORT=5432
+      - TYPEORM_USERNAME=admin
+      - TYPEORM_PASSWORD=admin
+      - TYPEORM_DATABASE=todo-list
+      - TYPEORM_SYNCHRONIZE=true
+      - TYPEORM_ENTITIES=./dist/models/*.js
+      - TYPEORM_MIGRATIONS=./dist/database/migrations/*.js
   db:
     image: postgres:13.3
     ports:
